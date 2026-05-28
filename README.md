@@ -20,6 +20,15 @@ This application calculates flight route distances between international airport
 
 ---
 
+## Key Concepts Implemented
+
+- Haversine Formula
+- REST API Integration
+- Angular HttpClient
+- Spring Boot Controllers and Services
+- MySQL Database Persistence
+- Full-Stack Application Architecture
+
 ## Tech Stack
 
 ### Frontend
