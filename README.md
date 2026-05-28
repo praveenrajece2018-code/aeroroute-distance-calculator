@@ -64,3 +64,29 @@ aeroroute-distance-calculator/
 │   └── backend-api.png
 │
 └── README.md
+
+---
+
+## Screenshots
+
+### Home Page
+
+![Home Page](screenshots/home.png)
+
+---
+
+### Route Summary
+
+![Route Summary](screenshots/route-summary.png)
+
+---
+
+### Recent Searches Dashboard
+
+![Recent Searches](screenshots/recent-searches.png)
+
+---
+
+### Backend API Response
+
+![Backend API](screenshots/backend-api.png)
