@@ -1,0 +1,132 @@
+<div class="page-wrapper">
+
+  <div class="container py-5">
+
+    <div class="text-center mb-5">
+      <h1 class="fw-bold">AeroRoute Distance Calculator</h1>
+      <p class="text-muted">Angular + Spring Boot + MySQL</p>
+    </div>
+
+    <div class="card shadow-sm p-4 mb-4">
+
+      <div class="alert alert-danger" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Source Airport</label>
+          <select class="form-select" [(ngModel)]="sourceCode">
+            <option value="">Select source airport</option>
+            <option *ngFor="let airport of airports" [value]="airport.iataCode">
+              {{ airport.iataCode }} - {{ airport.city }}
+            </option>
+          </select>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Destination Airport</label>
+          <select class="form-select" [(ngModel)]="destinationCode">
+            <option value="">Select destination airport</option>
+            <option *ngFor="let airport of airports" [value]="airport.iataCode">
+              {{ airport.iataCode }} - {{ airport.city }}
+            </option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="d-flex gap-2">
+        <button
+          class="btn btn-primary"
+          (click)="calculateDistance()"
+          [disabled]="loading"
+        >
+          {{ loading ? 'Calculating...' : 'Calculate Distance' }}
+        </button>
+
+        <button class="btn btn-outline-secondary" (click)="resetForm()">
+          Reset
+        </button>
+      </div>
+
+    </div>
+
+    <div class="card route-card shadow-sm p-4 mb-4" *ngIf="result !== null">
+
+      <h3 class="mb-4 fw-bold">Route Summary</h3>
+
+      <div class="row text-center align-items-center">
+
+        <div class="col-md-4">
+          <h2 class="airport-code text-primary">{{ result.sourceCode }}</h2>
+          <p class="airport-name">{{ result.sourceAirport }}</p>
+        </div>
+
+        <div class="col-md-4">
+          <div class="route-arrow">→</div>
+        </div>
+
+        <div class="col-md-4">
+          <h2 class="airport-code text-success">{{ result.destinationCode }}</h2>
+          <p class="airport-name">{{ result.destinationAirport }}</p>
+        </div>
+
+      </div>
+
+      <hr>
+
+      <div class="row text-center mt-3">
+
+        <div class="col-md-6">
+          <div class="distance-box">
+            <h3>{{ result.distanceKm }} km</h3>
+            <p class="text-muted mb-0">Distance in kilometers</p>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="distance-box">
+            <h3>{{ result.distanceMiles }} miles</h3>
+            <p class="text-muted mb-0">Distance in miles</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="card shadow-sm p-4">
+
+      <h3 class="mb-3 fw-bold">Recent Searches</h3>
+
+      <div *ngIf="history.length === 0" class="text-muted">
+        No recent searches yet.
+      </div>
+
+      <table class="table table-striped" *ngIf="history.length > 0">
+
+        <thead>
+          <tr>
+            <th>Route</th>
+            <th>KM</th>
+            <th>Miles</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let item of history">
+            <td>{{ item.sourceCode }} → {{ item.destinationCode }}</td>
+            <td>{{ item.distanceKm }}</td>
+            <td>{{ item.distanceMiles }}</td>
+          </tr>
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>
