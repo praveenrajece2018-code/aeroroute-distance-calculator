@@ -1,38 +1,66 @@
 # AeroRoute Distance Calculator
 
-AeroRoute Distance Calculator is a full-stack web application that calculates the distance between two airports using airport coordinates and the Haversine formula.
+A full-stack airport distance calculator built using Angular, Spring Boot, and MySQL.
 
-The application uses an Angular frontend, Spring Boot backend, and MySQL database. It displays route distance in kilometers and miles and stores recent route searches in the database.
+This application calculates flight route distances between international airports using the Haversine formula and stores recent searches in a MySQL database.
 
-## Tech Stack
-
-- Angular
-- TypeScript
-- Spring Boot
-- Java
-- MySQL
-- Bootstrap
-- REST APIs
+---
 
 ## Features
 
-- Select source and destination airports
-- Calculate airport-to-airport distance
-- Display distance in kilometers and miles
-- Route summary card
-- Recent searches dashboard
-- MySQL-backed search history
-- REST API integration
-- Responsive UI using Bootstrap
+- Airport-to-airport distance calculation
+- Distance in kilometers and miles
+- Route summary dashboard
+- Recent searches history
+- REST API backend
+- Angular frontend UI
+- MySQL database integration
+- Input validation
+- Responsive Bootstrap UI
+
+---
+
+## Tech Stack
+
+### Frontend
+- Angular
+- TypeScript
+- Bootstrap
+
+### Backend
+- Spring Boot
+- Java
+- Maven
+
+### Database
+- MySQL
+
+---
 
 ## Project Structure
 
 ```text
 aeroroute-distance-calculator/
+│
 ├── backend/
+│   └── backend/
+│       ├── src/
+│       ├── pom.xml
+│       └── mvnw
+│
 ├── frontend/
+│   ├── src/
+│   ├── public/
+│   ├── package.json
+│   └── angular.json
+│
 ├── database/
 │   └── schema.sql
+│
 ├── screenshots/
-├── README.md
-└── .gitignore
+│   ├── home.png
+│   ├── route-summary.png
+│   ├── recent-searches.png
+│   └── backend-api.png
+│
+└── README.md
